@@ -1,0 +1,128 @@
+/*
+ * Styles for demo page at Github Pages
+ */
+
+
+// config
+$max-width: 700px;
+
+// breakpoints use: @include breakpoint(xs);
+$breakpoint-small: 767px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 960px;
+
+// colors
+$color-accent-light: #3498db;
+$color-accent-dark: #2c3e50;
+$color-text-accent: #f1f1f1;
+
+// initialize configuration
+$initialize-block-margins: 0 0 0.75em;
+$initialize-color: #222;
+$initialize-heading-color: $color-accent-dark;
+$initialize-heading-font-family: 'Lato', sans-serif;
+$initialize-heading-margins: 1em 0 0.5em;
+
+// import dependencies
+@import "initialize-css/dist/initialize";
+@import "helpers/breakpoints";
+
+// extends
+%wrapper {
+    padding: 0 2em;
+    margin: 0 auto;
+    max-width: $max-width;
+    position: relative;
+}
+
+// demo page styling
+a {
+    color: $color-accent-light;
+
+    &:hover {
+        color: $color-accent-dark;
+    }
+}
+
+.browserupgrade {
+    background: #f1c40f;
+    color: #000000;
+    margin: 0;
+    padding: 0.5em 0;
+    text-align: center;
+
+    a {
+        color: inherit;
+    }
+}
+
+.header {
+    margin: 2em 0;
+
+    &-wrapper {
+        @extend %wrapper;
+        display: flex;
+
+        @include breakpoint(sm) {
+            flex-wrap: wrap;
+        }
+
+        .header-image {
+            border-radius: 50%;
+            height: 150px;
+            margin-right: 2em;
+            overflow: hidden;
+            width: 150px;
+
+            img {
+                height: auto;
+                width: 100%;
+            }
+        }
+    }
+
+    h1 {
+        font-size: 2em;
+
+    }
+}
+
+.main {
+    @extend %wrapper;
+    padding-top: 1em;
+    margin-bottom: 6em;
+
+    .project {
+        margin-bottom: 2em;
+    }
+
+    .button {
+        background: #ddd;
+        border-radius: 0.3em;
+        color: #999;
+        display: inline-block;
+        text-decoration: none;
+        padding: 0.5em;
+        text-align: center;
+        width: 10em;
+
+        &:hover {
+            background: darken($color-accent-dark, 10);
+            color: white;
+        }
+    }
+}
+
+.footer {
+    background: $color-accent-dark;
+    color: $color-text-accent;
+    padding: 2em 0;
+
+    &-wrapper {
+        @extend %wrapper;
+    }
+
+    a {
+        color: $color-text-accent;
+    }
+}
