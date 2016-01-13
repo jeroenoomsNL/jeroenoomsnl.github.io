@@ -9,15 +9,13 @@ var params = $.util.env;
 var config = {
     src: {
         base: 'src',
-        images: 'src/images',
         scripts: 'src/scripts',
         styles: 'src/styles'
     },
     dist: {
-        base: 'dist',
-        images: 'dist/images',
-        scripts: 'dist/scripts',
-        styles: 'dist/styles'
+        base: '',
+        scripts: 'scripts',
+        styles: 'styles'
     },
     autoprefixer: ['last 2 versions', 'Explorer >= 10', 'Firefox >= 25']
 };
@@ -37,13 +35,6 @@ gulp.task('styles', function () {
         .pipe($.sourcemaps.write('.'))
         .pipe(gulp.dest(config.dist.styles))
         .pipe($.size({title: 'styles'}));
-});
-
-gulp.task('images', function () {
-    return gulp.src([config.src.images + '/**/*'])
-        .pipe($.plumber())
-        .pipe(gulp.dest(config.dist.images))
-        .pipe($.size({title: 'images'}));
 });
 
 gulp.task('scripts', function () {
@@ -80,7 +71,6 @@ gulp.task('watch', ['build'], function () {
         }
     });
 
-    gulp.watch([config.src.images + '/**/*'], ['images']);
     gulp.watch([config.src.styles + '/**/*.scss'], ['styles']);
     gulp.watch([config.src.scripts + '/**/*.js'], ['scripts']);
     gulp.watch([config.src.base + '/**/*.html'], ['html']);
@@ -88,17 +78,6 @@ gulp.task('watch', ['build'], function () {
     browserSync.watch(config.dist.base + '/**/*').on('change', browserSync.reload);
 });
 
-// deploy to Github Pages
-gulp.task('deploy', ['build'], function() {
-    params.message = params.m || params.message;
-
-    var options = {};
-    options.message = params.message || 'Update ' + new Date();
-
-    return gulp.src(config.dist.base + '/**/*')
-        .pipe($.ghPages(options));
-});
-
-gulp.task('build', ['jshint', 'scripts', 'images', 'styles', 'html']);
+gulp.task('build', ['jshint', 'scripts', 'styles', 'html']);
 
 gulp.task('default', ['build']);
