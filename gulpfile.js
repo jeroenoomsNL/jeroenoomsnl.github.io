@@ -13,7 +13,7 @@ var config = {
         styles: 'src/styles'
     },
     dist: {
-        base: '',
+        base: '.',
         scripts: 'scripts',
         styles: 'styles'
     },

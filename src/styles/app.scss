@@ -44,6 +44,17 @@ a {
     }
 }
 
+h1, h2, h3, h4, h5, h6 {
+    a {
+        color: inherit;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
 .browserupgrade {
     background: #f1c40f;
     color: #000000;
