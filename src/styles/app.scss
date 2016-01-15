@@ -12,13 +12,13 @@ $breakpoint-medium: 768px;
 $breakpoint-large: 960px;
 
 // colors
-$color-accent-light: #3498db;
-$color-accent-dark: #2c3e50;
+$color-accent-light: #FF6B00;
+$color-accent-dark: #00599E;
 $color-text-accent: #f1f1f1;
 
 // initialize configuration
 $initialize-block-margins: 0 0 0.75em;
-$initialize-color: #222;
+$initialize-color: #525252;
 $initialize-heading-color: $color-accent-dark;
 $initialize-heading-font-family: 'Lato', sans-serif;
 $initialize-heading-margins: 1em 0 0.5em;
@@ -36,6 +36,10 @@ $initialize-heading-margins: 1em 0 0.5em;
 }
 
 // demo page styling
+body {
+    background: #eee;
+}
+
 a {
     color: $color-accent-light;
 
@@ -73,6 +77,7 @@ h1, h2, h3, h4, h5, h6 {
     &-wrapper {
         @extend %wrapper;
         display: flex;
+        justify-content: center;
 
         @include breakpoint(sm) {
             flex-wrap: wrap;
@@ -80,10 +85,10 @@ h1, h2, h3, h4, h5, h6 {
 
         .header-image {
             border-radius: 50%;
-            height: 150px;
+            height: 125px;
             margin-right: 2em;
             overflow: hidden;
-            width: 150px;
+            width: 125px;
 
             img {
                 height: auto;
@@ -92,9 +97,20 @@ h1, h2, h3, h4, h5, h6 {
         }
     }
 
+    &-links {        
+        a {
+            margin-right: 1em;
+        }
+    }
+
+    a {
+        color: $color-accent-dark;
+        text-decoration: none;
+    }
+
     h1 {
         font-size: 2em;
-
+        margin-top: 0;
     }
 }
 
@@ -103,14 +119,20 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 1em;
     margin-bottom: 6em;
 
+    section {
+        background: white;
+        border-radius: 1em;
+        padding: 1em 2em;
+    }
+
     .project {
         margin-bottom: 2em;
     }
 
     .button {
-        background: #ddd;
+        background: $color-accent-light;
         border-radius: 0.3em;
-        color: #999;
+        color: $color-text-accent;
         display: inline-block;
         text-decoration: none;
         padding: 0.5em;
@@ -118,14 +140,14 @@ h1, h2, h3, h4, h5, h6 {
         width: 10em;
 
         &:hover {
-            background: darken($color-accent-dark, 10);
-            color: white;
+            background: darken($color-accent-light, 10);
+            color: $color-text-accent;
         }
     }
 }
 
 .footer {
-    background: $color-accent-dark;
+    background: darken($color-accent-dark, 20);
     color: $color-text-accent;
     padding: 2em 0;
 

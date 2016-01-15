@@ -9,7 +9,7 @@
  * Normalize.css: http://github.com/necolas/normalize.css
  */
 html {
-  color: #222;
+  color: #525252;
   -moz-box-sizing: border-box;
        box-sizing: border-box;
   font-family: sans-serif;
@@ -276,7 +276,7 @@ textarea {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #2c3e50;
+  color: #00599E;
   margin: 1em 0 0.5em;
   font-family: "Lato", sans-serif;
 }
@@ -292,11 +292,15 @@ p, table, ul, ol, fieldset, blockquote, dl {
   position: relative;
 }
 
+body {
+  background: #eee;
+}
+
 a {
-  color: #3498db;
+  color: #FF6B00;
 }
 a:hover {
-  color: #2c3e50;
+  color: #00599E;
 }
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -325,6 +329,9 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 @media (max-width: 767px) {
   .header-wrapper {
@@ -335,30 +342,43 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
 }
 .header-wrapper .header-image {
   border-radius: 50%;
-  height: 150px;
+  height: 125px;
   margin-right: 2em;
   overflow: hidden;
-  width: 150px;
+  width: 125px;
 }
 .header-wrapper .header-image img {
   height: auto;
   width: 100%;
 }
+.header-links a {
+  margin-right: 1em;
+}
+.header a {
+  color: #00599E;
+  text-decoration: none;
+}
 .header h1 {
   font-size: 2em;
+  margin-top: 0;
 }
 
 .main {
   padding-top: 1em;
   margin-bottom: 6em;
 }
+.main section {
+  background: white;
+  border-radius: 1em;
+  padding: 1em 2em;
+}
 .main .project {
   margin-bottom: 2em;
 }
 .main .button {
-  background: #ddd;
+  background: #FF6B00;
   border-radius: 0.3em;
-  color: #999;
+  color: #f1f1f1;
   display: inline-block;
   text-decoration: none;
   padding: 0.5em;
@@ -366,12 +386,12 @@ h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
   width: 10em;
 }
 .main .button:hover {
-  background: #1a252f;
-  color: white;
+  background: #cc5600;
+  color: #f1f1f1;
 }
 
 .footer {
-  background: #2c3e50;
+  background: #002038;
   color: #f1f1f1;
   padding: 2em 0;
 }
